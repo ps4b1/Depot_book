@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Product.delete_all
+#...
+Product.create!(title: "Iphone 13", description: %{ <p>Novi iphone 13</p>}, image_url: "iphone.png", price: 1500.00)
+#...
