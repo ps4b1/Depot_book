@@ -15,11 +15,12 @@
     <%= image_tag 'logo.svg', alt: 'Pragmatic book shelf' %>
     <h1><%= @page_title %></h1>
   </header>
+
   <section class="content">
     <%= render 'layouts/navigation' %>
-  <main class='<%= controller.controller_name %>'>
-    <%= yield %>
-  </main>
+    <main class='<%= controller.controller_name %>'>
+      <%= yield %>
+    </main>
   </section>
   </body>
 </html>
