@@ -32,15 +32,16 @@
         display: inline;
       }
       input[type="submit"] {
-        background-color: #282;
+        background-color: white;
         border-radius: 0.354em;
-        border: solid thin #141;
-        color: white;
+        border: solid thin #282;
+        color: #282;
         font-size: 1em;
         padding: 0.354em 1em;
       }
       input[type="submit"]:hover {
-        background-color: #141;
+        background-color: #282;
+        color: white;
       }
     }
   }
