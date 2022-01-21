@@ -2,7 +2,7 @@
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .store{
-  max-width: 80em;
+
   ul.catalog{
     border-top: solid 0.250em;
     list-style: none;
@@ -25,6 +25,7 @@
         box-shadow: 0.176em 0.176em 0.354em 0px rgba(0, 0, 0, 0.35);
       }
       .price{
+
         font-size: 1.414em;
       }
       form, div {
