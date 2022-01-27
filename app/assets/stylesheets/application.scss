@@ -57,37 +57,50 @@ header.main{
         ul{
             list-style: none;
         }
-    }
-    ul {
-        // and needs more padding
+        ul {
+            // and needs more padding
 
-        margin: 0;
-        padding: 0;
-        @media (min-width: 30em) {
-            padding-right: 1em; // give desktop some extra space }
-            li {
-                margin: 0;
-                padding: 0.5em; text-transform: uppercase; letter-spacing: 0.354em; a{
-                color: #bfb;
-                text-decoration: none;
+            margin: 0;
+            padding: 0;
+            @media (min-width: 30em) {
+                padding-right: 1em; // give desktop some extra space }
+                li {
+                    margin: 0;
+                    padding: 0.5em; text-transform: uppercase; letter-spacing: 0.354em; a{
+                    color: #bfb;
+                    text-decoration: none;
                 }
-                a:hover {
+                    a:hover {
+                        background: none;
+                        color: white;
+                    }
+                }
+
+                .time{
+                    color: #bfb;
+                    text-decoration: none;
+                }
+                .time:hover{
                     background: none;
                     color: white;
                 }
             }
-
-            .time{
-                color: #bfb;
-                text-decoration: none;
-            }
-            .time:hover{
-                background: none;
-                color: white;
-            }
         }
     }
+
     main {
         padding: 0.5em;
+    }
+    #cart {
+        article {
+            h2 {
+                margin-top: 0;
+            }
+            background: white; border-radius: 0.5em; margin: 1em;
+            padding: 1.414em;
+            @media (min-width: 30em) {
+                margin: 0;
+            }
+        }
     }
 }

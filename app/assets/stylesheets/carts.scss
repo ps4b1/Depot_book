@@ -41,4 +41,16 @@
   input[type="submit"]:hover {
     background-color: #992;
   }
+  input.remove_button[type="submit"]{
+    background-color: white;
+    border-radius: 0.354em;
+    border: solid thin darkred;
+    color: darkred;
+    font-size: 1em;
+    padding: 0.354em 1em;
+  }
+  input.remove_button[type="submit"]:hover{
+    background-color: darkred;
+    color: white;
+  }
 }
