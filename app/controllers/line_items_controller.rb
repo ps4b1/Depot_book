@@ -53,11 +53,12 @@ class LineItemsController < ApplicationController
 
   # DELETE /line_items/1 or /line_items/1.json
   def destroy
-    cart_id = @line_item.cart.id
+    @cart = @line_item.cart
     @line_item.destroy
     # line_item_path je bio prije cart_path
     respond_to do |format|
       format.html { redirect_to store_index_url, notice: 'Item was removed from cart.' }
+      format.js
       format.json { head :no_content }
     end
   end
