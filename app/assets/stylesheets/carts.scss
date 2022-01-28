@@ -53,4 +53,32 @@
     background-color: darkred;
     color: white;
   }
+  .actions {
+    text-align: right;
+    input[type="submit"] {
+      background-color: white;
+      border-radius: 0.354em;
+      font-size: 1em;
+      padding: 0.354em 1em;
+      width: 100px;
+    }
+    input.checkout[type="submit"]{
+      float: right;
+      margin-left: 10px;
+      border: solid thin mediumseagreen;
+      color: mediumseagreen;
+    }
+    input.checkout[type="submit"]:hover {
+      background-color: mediumseagreen;
+      color: white;
+    }
+    input.empty_cart[type="submit"]{
+      border: solid thin darkred;
+      color: darkred;
+    }
+    input.empty_cart[type="submit"]:hover {
+      background-color: darkred;
+      color: white;
+    }
+  }
 }
