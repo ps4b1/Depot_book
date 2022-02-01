@@ -1,7 +1,8 @@
 <nav class="side_nav">
   <% if @cart %>
     <div id="cart" class="carts">
-      <%= render_if @cart && @cart.line_items.any?, @cart %>
+      <%#= render_if @cart && @cart.line_items.any?, @cart %>
+      <%= yield :cart %>
     </div>
   <% end %>
   <ul>
@@ -10,5 +11,6 @@
     <li><a href="/news">News</a></li>
     <li><a href="/contact">Contact</a></li>
     <li class="time"><%= Time.new.strftime("%Y-%m-%d %H:%M:%S") %></li>
+    <li class="store_counter"> <%= yield :counter %> </li>
   </ul>
 </nav>

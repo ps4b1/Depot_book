@@ -1,3 +1,14 @@
+<%content_for :cart do  %>
+  <% if @cart && @cart.line_items.any?  %>
+    <%= render partial: 'carts/cart', locals: {delete_last_redirect: false, cart: @cart}  %>
+  <% end %>
+<% end %>
+<%content_for :counter do  %>
+ Times visited: <%= @counter %>
+<% end %>
+
+
+
 <% if notice %>
   <aside id="notice"><%= notice %></aside>
 <% end %>
