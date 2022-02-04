@@ -24,7 +24,6 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
            params: { product: { title: @title, description: @product.description, image_url: @product.image_url,
                                 price: @product.price } }
     end
-
     assert_redirected_to product_url(Product.last)
   end
 

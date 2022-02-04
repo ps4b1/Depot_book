@@ -1,0 +1,9 @@
+<h3>Best sellers</h3>
+<table>
+  <% top_list.each do |product| %>
+    <tr>
+    <td> <%= product.title %> </td>
+    <td> <%= product.times_bought %> </td>
+    </tr>
+  <% end %>
+</table>

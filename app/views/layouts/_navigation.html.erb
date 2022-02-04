@@ -13,4 +13,7 @@
     <li class="time"><%= Time.new.strftime("%Y-%m-%d %H:%M:%S") %></li>
     <li class="store_counter"> <%= yield :counter %> </li>
   </ul>
+  <div class="top_list">
+    <%= render 'layouts/top_list' %>
+  </div>
 </nav>

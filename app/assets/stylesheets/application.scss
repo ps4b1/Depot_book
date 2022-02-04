@@ -94,6 +94,14 @@ header.main{
                 }
             }
         }
+        .top_list {
+            background-color: white;
+            table {
+                border-collapse: collapse;
+            }
+            td {
+                padding: 0.5em;
+            }
     }
 
     main {
@@ -185,4 +193,4 @@ header.main{
             background: pink;
         }
     }
-}
+}}

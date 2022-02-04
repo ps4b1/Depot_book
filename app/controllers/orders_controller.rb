@@ -16,7 +16,6 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-
     @order = Order.new
   end
 
@@ -29,6 +28,10 @@ class OrdersController < ApplicationController
     @order.add_line_items_from_cart(@cart)
     respond_to do |format|
       if @order.save
+        # item.product.update!(amount_sold: item.product.amount_sold + item.quantity)
+        @cart.line_items.each do |line_item|
+          line_item.update!(times_bought: item.product.times_bought + line_item.quantity)
+        end
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         format.html { redirect_to store_index_url, notice: 'Thank you for your order.' }
@@ -77,5 +80,17 @@ class OrdersController < ApplicationController
 
   def ensure_cart_is_not_empty
     redirect_to store_index_url, notice: 'Your cart is empty' if @cart.line_items.empty?
+  end
+
+  def pay_type_params
+    case order_params[:pay_type]
+    when 'Credit card'
+      params.require(:order).permit(:credit_card_number, :expiration_date)
+    when 'Check'
+      params.require(:order).permit(:routing_number, :account_number)
+    when 'Purchase order'
+      params.require(:order).permit(:po_number) else
+      {}
+    end
   end
 end
