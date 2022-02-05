@@ -28,12 +28,14 @@ class OrdersController < ApplicationController
     @order.add_line_items_from_cart(@cart)
     respond_to do |format|
       if @order.save
-        # item.product.update!(amount_sold: item.product.amount_sold + item.quantity)
         @cart.line_items.each do |line_item|
-          line_item.update!(times_bought: item.product.times_bought + line_item.quantity)
+          line_item.product.update!(times_bought: line_item.product.times_bought + line_item.quantity)
         end
+        @products = Product.all
+        ActionCable.server.broadcast 'products', html: render_to_string('layouts/_top_list', layout: false)
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        OrderMailer.received(@order).deliver_later
         format.html { redirect_to store_index_url, notice: 'Thank you for your order.' }
         format.json { render :show, status: :created, location: @order }
       else

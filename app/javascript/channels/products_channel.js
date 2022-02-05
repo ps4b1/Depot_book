@@ -8,11 +8,16 @@ consumer.subscriptions.create("ProductsChannel", {
   disconnected() {
     // Called when the subscription has been terminated by the server
   },
-
+//radi ali ne mogu imati dva istovremeno na ovaj način
   received(data) {
+    // const topListElement = document.querySelector("div.top_list")
     const storeElement = document.querySelector("main.store")
     if (storeElement) {
       storeElement.innerHTML = data.html
+
     }
+    // if(topListElement) {
+    //   topListElement.innerHTML= data.html
+    // }
   }
 });

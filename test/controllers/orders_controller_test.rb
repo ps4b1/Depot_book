@@ -24,7 +24,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
            params: { order: { pay_type: @order.pay_type, address: @order.address, email: @order.email,
                               name: @order.name } }
     end
-    #product.times_bought
+    # product.times_bought
     assert_redirected_to store_index_url
   end
 
