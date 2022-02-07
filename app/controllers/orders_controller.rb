@@ -32,7 +32,8 @@ class OrdersController < ApplicationController
           line_item.product.update!(times_bought: line_item.product.times_bought + line_item.quantity)
         end
         @products = Product.all
-        ActionCable.server.broadcast 'products', html: render_to_string('layouts/_top_list', layout: false)
+        ActionCable.server.broadcast 'products', topList: render_to_string('layouts/_top_list', layout: false),
+                                                 store: render_to_string('store/index', layout: false)
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         OrderMailer.received(@order).deliver_later
