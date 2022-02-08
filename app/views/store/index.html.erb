@@ -20,9 +20,7 @@
     <% @products.each do |product| %>
       <% cache product do %>
         <li>
-          <%= form_with url: line_items_path(product_id: product), method: :post, local: false do %>
-            <%= image_submit_tag(product.image_url, alt:"#{product.title} book cover" , class: "image_button")%>
-          <% end %>
+          <%= link_to image_tag(product.image_url), line_items_path(product_id: product), class:"image_button", method: :post, remote: true%>
           <h2><%= product.title %></h2>
           <p>
             <%= sanitize(product.description)  %>

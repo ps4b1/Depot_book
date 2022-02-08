@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_201_222_650) do
+ActiveRecord::Schema.define(version: 20_220_208_184_542) do
   create_table 'carts', force: :cascade do |t|
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 20_220_201_222_650) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'times_bought', default: 0
+  end
+
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'password_digest'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
   add_foreign_key 'line_items', 'carts'

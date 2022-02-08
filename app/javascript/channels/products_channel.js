@@ -12,10 +12,10 @@ consumer.subscriptions.create("ProductsChannel", {
     const topListElement= document.querySelector('div.top_list')
     const storeElement = document.querySelector("main.store")
     if (storeElement) {
-      storeElement.innerHTML = data.store
+      storeElement.innerHTML = data.storeUpdate
     }
     if (topListElement){
-      topListElement.innerHTML=data.topList
+      topListElement.innerHTML=data.topListUpdate
     }
   }
 });

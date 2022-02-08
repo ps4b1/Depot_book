@@ -32,11 +32,12 @@ class OrdersController < ApplicationController
           line_item.product.update!(times_bought: line_item.product.times_bought + line_item.quantity)
         end
         @products = Product.all
-        ActionCable.server.broadcast 'products', topList: render_to_string('layouts/_top_list', layout: false),
-                                                 store: render_to_string('store/index', layout: false)
+        ActionCable.server.broadcast 'products', topListUpdate: render_to_string('layouts/_top_list', layout: false),
+                                                 storeUpdate: render_to_string('store/index', layout: false)
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         OrderMailer.received(@order).deliver_later
+        ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
         format.html { redirect_to store_index_url, notice: 'Thank you for your order.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -62,7 +63,6 @@ class OrdersController < ApplicationController
   # DELETE /orders/1 or /orders/1.json
   def destroy
     @order.destroy
-
     respond_to do |format|
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
