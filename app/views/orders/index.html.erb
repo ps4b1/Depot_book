@@ -1,6 +1,9 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
+<% if @orders.empty? %>
+  <p> There are no new orders</p>
+<% else %>
 <h1>Orders</h1>
 
 <table>
@@ -28,7 +31,7 @@
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
 
 <%= link_to 'New Order', new_order_path %>
