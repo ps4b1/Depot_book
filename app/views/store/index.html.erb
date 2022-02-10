@@ -28,6 +28,10 @@
           <div class="price">
             <%= number_to_currency(product.price) %>
             <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+            <%= button_to 'Rate', new_product_review_url(product_id: product), method: :get %>
+            <% if product.reviews.any? %>
+              <%= "Avarage rating: #{sprintf("%0.02f", product.reviews.average(:rating))}" %>
+            <% end %>
           </div>
 
         </li>

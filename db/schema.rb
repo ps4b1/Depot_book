@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_208_184_542) do
+ActiveRecord::Schema.define(version: 20_220_210_204_622) do
   create_table 'carts', force: :cascade do |t|
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20_220_208_184_542) do
     t.integer 'times_bought', default: 0
   end
 
+  create_table 'reviews', force: :cascade do |t|
+    t.integer 'product_id', null: false
+    t.integer 'rating'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['product_id'], name: 'index_reviews_on_product_id'
+  end
+
   create_table 'users', force: :cascade do |t|
     t.string 'name'
     t.string 'password_digest'
@@ -60,4 +68,5 @@ ActiveRecord::Schema.define(version: 20_220_208_184_542) do
   add_foreign_key 'line_items', 'carts'
   add_foreign_key 'line_items', 'orders'
   add_foreign_key 'line_items', 'products'
+  add_foreign_key 'reviews', 'products'
 end

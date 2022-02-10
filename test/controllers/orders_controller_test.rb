@@ -22,9 +22,10 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Order.count') do
       post orders_url,
            params: { order: { pay_type: @order.pay_type, address: @order.address, email: @order.email,
-                              name: @order.name } }
+                              name: @order.name, line_items: @order.line_items } }
     end
     assert_redirected_to store_index_url
+    assert Order.last.line_items.first.product.times_bought != 0
   end
 
   test 'should show order' do
