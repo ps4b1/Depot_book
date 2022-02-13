@@ -28,8 +28,22 @@
         background-color: white;
       }
       .price{
-
         font-size: 1.414em;
+        p{
+          float: right;
+        }
+        .rate{
+          background-color: white;
+          border-radius: 0.354em;
+          border: solid thin royalblue;
+          color: royalblue;
+          font-size: 1em;
+          padding: 0.354em 1em;
+        }
+        .rate:hover{
+          background-color: royalblue;
+          color: white;
+        }
       }
       form, div {
         display: inline;

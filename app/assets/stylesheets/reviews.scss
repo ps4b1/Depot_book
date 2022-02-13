@@ -1,3 +1,21 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.rating_form{
+  text-align: center;
+  .image{
+    margin: 5px;
+  }
+}
+.rate{
+  background-color: white;
+  border-radius: 0.354em;
+  border: solid thin royalblue;
+  color: royalblue;
+  font-size: 1em;
+  padding: 0.354em 1em;
+}
+.rate:hover{
+  background-color: royalblue;
+  color: white;
+}

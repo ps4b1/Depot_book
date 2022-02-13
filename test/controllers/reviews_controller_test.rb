@@ -5,6 +5,7 @@ require 'test_helper'
 class ReviewsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @review = reviews(:one)
+    @product = products(:ruby)
   end
 
   test 'should get index' do
@@ -19,10 +20,10 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create review' do
     assert_difference('Review.count') do
-      post reviews_url, params: { review: { product_id: @review.product_id, rating: @review.rating } }
+      post products_reviews_path, params: { review: { product_id: @review.product_id, rating: @review.rating } }
     end
 
-    assert_redirected_to review_url(Review.last)
+    assert_redirected_to store_index_url
   end
 
   test 'should show review' do

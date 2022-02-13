@@ -9,13 +9,16 @@ Rails.application.routes.draw do
   end
   get 'admin/index'
   resources :users
-  resources :orders
-  resources :line_items
-  resources :carts
-  root 'store#index', as: 'store_index'
+  scope '(:locale)' do
+    resources :orders
+    resources :line_items
+    resources :carts
+    root 'store#index', as: 'store_index', via: :all
+  end
+
   resources :products do
     get :who_bought, on: :member
-    resources :reviews, except: [:show, :index]
+    resources :reviews, except: %i[show index]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
