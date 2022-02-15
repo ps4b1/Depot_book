@@ -11,7 +11,7 @@ consumer.subscriptions.create("RatingChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    const storeElement = $("main.store")
+    const storeElement = document.querySelector("main.store")
     if (storeElement) {
       storeElement.innerHTML = data.html
     }

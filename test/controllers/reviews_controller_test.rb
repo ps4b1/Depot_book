@@ -8,44 +8,45 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
     @product = products(:ruby)
   end
 
-  test 'should get index' do
-    get reviews_url
-    assert_response :success
-  end
+  # test 'should get index' do
+  #   get reviews_url
+  #   assert_response :success
+  # end
 
   test 'should get new' do
-    get new_review_url
+    get new_product_review_url(@product.id)
     assert_response :success
   end
 
   test 'should create review' do
     assert_difference('Review.count') do
-      post products_reviews_path, params: { review: { product_id: @review.product_id, rating: @review.rating } }
+      post product_reviews_url(@product.id),
+           params: { review: { product_id: @review.product_id, rating: @review.rating } }
     end
 
     assert_redirected_to store_index_url
   end
 
-  test 'should show review' do
-    get review_url(@review)
-    assert_response :success
-  end
-
-  test 'should get edit' do
-    get edit_review_url(@review)
-    assert_response :success
-  end
-
-  test 'should update review' do
-    patch review_url(@review), params: { review: { product_id: @review.product_id, rating: @review.rating } }
-    assert_redirected_to review_url(@review)
-  end
-
-  test 'should destroy review' do
-    assert_difference('Review.count', -1) do
-      delete review_url(@review)
-    end
-
-    assert_redirected_to reviews_url
-  end
+  # test 'should show review' do
+  #   get review_url(@review)
+  #   assert_response :success
+  # end
+  #
+  # test 'should get edit' do
+  #   get edit_review_url(@review)
+  #   assert_response :success
+  # end
+  #
+  # test 'should update review' do
+  #   patch review_url(@review), params: { review: { product_id: @review.product_id, rating: @review.rating } }
+  #   assert_redirected_to review_url(@review)
+  # end
+  #
+  # test 'should destroy review' do
+  #   assert_difference('Review.count', -1) do
+  #     delete review_url(@review)
+  #   end
+  #
+  #   assert_redirected_to reviews_url
+  # end
 end

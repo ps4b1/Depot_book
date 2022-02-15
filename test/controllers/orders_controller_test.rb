@@ -25,7 +25,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
                               name: @order.name, line_items: @order.line_items } }
     end
     assert_redirected_to store_index_url
-    assert Order.last.line_items.first.product.times_bought != 0
+
   end
 
   test 'should show order' do

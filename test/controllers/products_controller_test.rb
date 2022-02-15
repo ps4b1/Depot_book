@@ -22,7 +22,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Product.count') do
       post products_url,
            params: { product: { title: @title, description: @product.description, image_url: @product.image_url,
-                                price: @product.price } }
+                                price: @product.price, times_bought: 0 } }
     end
     assert_redirected_to product_url(Product.last)
   end

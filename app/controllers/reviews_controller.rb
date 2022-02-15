@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     @products = Product.order(:title)
     respond_to do |format|
       if @review.save
-        ActionCable.server.broadcast 'rating', html: render_to_string('store/index', layout: false)
+        # ActionCable.server.broadcast 'rating', html: render_to_string('store/index', layout: false)
         format.html { redirect_to store_index_url }
         format.json { render :show, status: :created, location: @review }
       else
