@@ -25,7 +25,6 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
                               name: @order.name, line_items: @order.line_items } }
     end
     assert_redirected_to store_index_url
-
   end
 
   test 'should show order' do

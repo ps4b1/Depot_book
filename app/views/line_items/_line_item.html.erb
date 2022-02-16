@@ -8,8 +8,9 @@
   <td class="price"><%= number_to_currency(line_item.total_price) %></td>
   <td>
 <!--trenutno ne radi samo ako odmah idem brisat prvi item čim ga stavim u cart-->
-    <%= button_to 'Remove', line_item, method: :delete, class: "remove_button", remote: (delete_last_redirect && (@cart.line_items.count == 1 && line_item.quantity==1) ? false:true) %>
-
+    <% if sum_of_quantity(@cart) > 1%>
+      <%= button_to 'Remove', line_item, method: :delete, class: "remove_button", remote: (delete_last_redirect && (@cart.line_items.count == 1 && line_item.quantity==1) ? false:true) %>
+    <% end %>
   </td>
 </tr>
 
