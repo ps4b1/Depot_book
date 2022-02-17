@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'support_requests/index'
   get 'admin' => 'admin#index'
   controller :sessions do
     get 'login' => :new
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     root 'store#index', as: 'store_index', via: :all
   end
 
+  resources :support_requests, only: %i[index update]
   resources :products do
     get :who_bought, on: :member
     resources :reviews, except: %i[show index]
